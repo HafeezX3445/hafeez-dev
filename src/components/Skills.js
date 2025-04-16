@@ -8,11 +8,11 @@ const skills = [
   { name: "CSS", icon: "/icons/css.png" },
   { name: "JS", icon: "/icons/js.png" },
   { name: "React.js", icon: "/icons/react.png" },
-  { name: "Redux JS", icon: "/icons/react.png" },
-  { name: "Asp .Net Core Web", icon: "/icons/react.png" },
-  { name: "React Native", icon: "/icons/react.png" },
-  { name: "Node.js", icon: "/icons/react.png" },
-  { name: "Node.js", icon: "/icons/react.png" },
+  { name: "Azure", icon: "/icons/Azure.jfif" },
+  // { name: "Asp .Net Core Web", icon: "/icons/react.png" },
+  // { name: "React Native", icon: "/icons/react.png" },
+  // { name: "Node.js", icon: "/icons/react.png" },
+  // { name: "Node.js", icon: "/icons/react.png" },
 ];
 
 const Skills = React.forwardRef((props, ref) => {
