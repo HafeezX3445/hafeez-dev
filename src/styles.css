@@ -1,49 +1,85 @@
 .header-container {
-    background-color: white;
+  background-color: white;
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
+  justify-content: space-between;
     padding: 0 1rem;
-  }
-  
-  .header-content {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 2rem;
   }
   
   .brand-name {
     font-size: 1rem;
-    white-space: nowrap;
+    font-weight: bold;
+    }
+    
+    /* Hamburger icon */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+                .hamburger .bar {
+                  width: 20px;
+                  height: 2px;
+                  background-color: #333;
+                }
+        
+                /* Nav Links - Desktop */
+                .nav-links {
+                  display: flex;
+                  align-items: center;
+                  gap: 15px;
+                }
+        
+                .nav-link {
+                  display: inline-flex;
+                  align-items: center;
+                  font-size: 0.8rem;
+                  color: #333;
+  text-decoration: none;
+}
+.nav-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  filter: grayscale(100%) brightness(0%);
+  transition: filter 0.2s ease;
+}
+.nav-link:hover,
+.nav-link:hover .nav-icon {
+  filter: invert(24%) sepia(100%) saturate(2000%) hue-rotate(200deg);
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
   }
 
-    .nav-links .nav-link {
-      margin-left: 20px;
-      color: #333;
-      font-size: 0.7rem;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 1rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+    
+                                                                                                                                .nav-links.open {
+                                                                                                                                  display: flex;
+                                                                                                                                }
     }
   
-    .nav-links .nav-icon {
-      width: 14px;
-      height: 14px;
-      margin-right: 6px;
-      filter: grayscale(100%) brightness(0%);
-      transition: filter 0.2s ease;
-    }
-  
-    .nav-links .nav-link:hover {
-      cursor: pointer;
-      filter: invert(24%) sepia(100%) saturate(2000%) hue-rotate(200deg);
-    }
-  
-    .nav-links .nav-link:hover .nav-icon {
+                                                                                                                                .nav-link:hover,
+                                                                                                                                .nav-link:hover .nav-icon {
       filter: invert(24%) sepia(100%) saturate(2000%) hue-rotate(200deg);
     }
 
@@ -53,6 +89,7 @@
       justify-content: center;
       padding-top: 2rem;
       margin-bottom: 2rem;
+      height: 60vh;
     }
   
     .about-card {

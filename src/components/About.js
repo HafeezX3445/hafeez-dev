@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../styles.css";
 import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const About = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -19,13 +21,13 @@ const About = () => {
       .then(
         (result) => {
           console.log(result.text);
-          alert("Inquiry sent successfully!");
+          toast.success("Inquiry sent successfully!");
           setForm({ name: "", email: "", message: "" });
           setIsSending(false);
         },
         (error) => {
           console.log(error.text);
-          alert("Failed to send message, try again later.");
+          toast.error("Failed to send message, try again later.");
           setIsSending(false);
         }
       );
@@ -54,7 +56,7 @@ const About = () => {
 
         <div className="about-details">
           <p>
-            <i className="fas fa-briefcase"></i>.Net | React | Azure | SQL | AWS
+            <i className="fas fa-briefcase"></i>.Net | React | Azure | SQL
           </p>
           <p>
             <i className="fas fa-map-marker-alt"></i> Bangalore
@@ -145,7 +147,18 @@ const About = () => {
                   className="btn btn-primary"
                   disabled={isSending}
                 >
-                  {isSending ? "Sending..." : "Send Inquiry"}
+                  {isSending ? (
+                    <>
+                      <span
+                        className="spinner-border spinner-border-sm me-2"
+                        role="status"
+                        aria-hidden="true"
+                      ></span>
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Inquiry"
+                  )}
                 </button>
 
                 <button
@@ -160,6 +173,8 @@ const About = () => {
           </form>
         </div>
       </div>
+
+      <ToastContainer />
     </div>
   );
 };
