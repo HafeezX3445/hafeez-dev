@@ -54,7 +54,7 @@ const About = () => {
 
         <div className="about-details">
           <p>
-            <i className="fas fa-briefcase"></i>.Net | React | Azure | SQL
+            <i className="fas fa-briefcase"></i>.Net | React | Azure | SQL | AWS
           </p>
           <p>
             <i className="fas fa-map-marker-alt"></i> Bangalore
