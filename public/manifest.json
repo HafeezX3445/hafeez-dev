@@ -1,0 +1,15 @@
+{
+  "short_name": "HafeezDev",
+  "name": "Hafeez Developer Portfolio",
+  "icons": [
+    {
+      "src": "dev-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0d0d0d",
+  "background_color": "#ffffff"
+}
