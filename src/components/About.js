@@ -52,6 +52,7 @@ const About = () => {
     <div className="about-container">
       <div className="about-card">
         <img src="/icons/about.png" alt="Profile" className="profile-img" />
+
         <h2 className="about-name">Hafeez Shaik</h2>
 
         <div className="about-details">

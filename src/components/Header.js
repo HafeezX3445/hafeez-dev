@@ -1,23 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../styles.css";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+  const hamburgerRef = useRef(null);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
+  const handleClickOutside = (e) => {
+    if (
+      menuRef.current &&
+      !menuRef.current.contains(e.target) &&
+      hamburgerRef.current &&
+      !hamburgerRef.current.contains(e.target)
+    ) {
+      setMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="header-container">
-      <span className="brand-name">Hafeez Shaik</span>
+      <Link to="/" className="brand-name">
+        <span>Hafeez Shaik</span>
+      </Link>
 
-      <div className="hamburger" onClick={toggleMenu}>
+      <div ref={hamburgerRef} className="hamburger" onClick={toggleMenu}>
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
       </div>
 
-      <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+      <div ref={menuRef} className={`nav-links ${menuOpen ? "open" : ""}`}>
         <Link
           to="/about"
           className="nav-link"
